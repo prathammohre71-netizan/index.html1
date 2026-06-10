@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAND Nutrition</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+position:sticky;
+top:0;
+background:#000;
+padding:20px 50px;
+border-bottom:2px solid gold;
+z-index:1000;
+}
+
+.logo{
+font-size:42px;
+font-weight:900;
+color:gold;
+letter-spacing:8px;
+text-align:center;
+}
+
+.hero{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+background:
+radial-gradient(circle at center,#222 0%,#050505 70%);
+}
+
+.hero h1{
+font-size:80px;
+color:gold;
+}
+
+.hero p{
+font-size:22px;
+margin-top:20px;
+max-width:700px;
+}
+
+.products{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:60px 20px;
+}
+
+.card{
+width:330px;
+background:#111;
+border-radius:20px;
+padding:30px;
+border:1px solid #333;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.product-box{
+height:220px;
+border-radius:15px;
+background:linear-gradient(135deg,#d4af37,#6f5b15);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+font-weight:bold;
+color:black;
+margin-bottom:20px;
+}
+
+.price{
+font-size:30px;
+font-weight:bold;
+margin:15px 0;
+color:gold;
+}
+
+.buy-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+background:gold;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.section-title{
+text-align:center;
+font-size:50px;
+color:gold;
+margin-top:40px;
+}
+
+.review-section{
+padding:50px;
+}
+
+.review{
+max-width:700px;
+margin:20px auto;
+background:#111;
+padding:20px;
+border-radius:12px;
+}
+
+.footer{
+padding:60px;
+text-align:center;
+background:#000;
+border-top:1px solid gold;
+}
+
+.overlay{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#050505;
+z-index:9999;
+}
+
+.center{
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+}
+
+input{
+width:350px;
+padding:14px;
+margin:10px;
+border:none;
+border-radius:10px;
+}
+
+.next-btn{
+padding:15px 35px;
+background:gold;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+margin-top:20px;
+}
+
+.progress{
+width:450px;
+height:25px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+margin-top:20px;
+}
+
+.bar{
+height:100%;
+background:gold;
+width:0%;
+animation:load 4s linear forwards;
+}
+
+@keyframes load{
+from{width:0%;}
+to{width:100%;}
+}
+
+.big{
+font-size:120px;
+font-weight:900;
+color:gold;
+text-align:center;
+}
+
+.bigger{
+font-size:170px;
+font-weight:900;
+text-align:center;
+line-height:1;
+}
+
+.small{
+font-size:32px;
+margin-top:20px;
+text-align:center;
+}
+
+.retry{
+margin-top:40px;
+padding:18px 40px;
+font-size:24px;
+font-weight:bold;
+background:gold;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:50px;
+}
+
+.big{
+font-size:55px;
+}
+
+.bigger{
+font-size:75px;
+}
+
+.progress{
+width:90%;
+}
+
+input{
+width:90%;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">RAND</div>
+</header>
+
+<section class="hero">
+
+<h1>RAND NUTRITION</h1>
+
+<p>
+Premium Supplements For Elite Athletes.
+Trusted By Thousands Across India.
+</p>
+
+</section>
+
+<h2 class="section-title">Featured Products</h2>
+
+<section class="products">
+
+<div class="card">
+
+<div class="product-box">
+WHEY
+</div>
+
+<h2>RAND Whey Protein</h2>
+
+<p>24g Protein • Rich Chocolate</p>
+
+<div class="price">₹2499</div>
+
+<button class="buy-btn" onclick="openShipping()">
+BUY NOW
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="product-box">
+CREATINE
+</div>
+
+<h2>RAND Creatine</h2>
+
+<p>100% Pure Monohydrate</p>
+
+<div class="price">₹899</div>
+
+<button class="buy-btn" onclick="openShipping()">
+BUY NOW
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="product-box">
+MULTI
+</div>
+
+<h2>RAND Multivitamin</h2>
+
+<p>Daily Wellness Support</p>
+
+<div class="price">₹699</div>
+
+<button class="buy-btn" onclick="openShipping()">
+BUY NOW
+</button>
+
+</div>
+
+</section>
+
+<section class="review-section">
+
+<h2 class="section-title">Customer Reviews</h2>
+
+<div class="review">
+★★★★★ Amazing Results In Just 2 Weeks
+</div>
+
+<div class="review">
+★★★★★ Best Creatine I Have Used
+</div>
+
+<div class="review">
+★★★★☆ Premium Packaging & Great Taste
+</div>
+
+<div class="review">
+★★★★★ Worth Every Rupee
+</div>
+
+</section>
+
+<footer class="footer">
+
+<h2 style="color:gold;">Founder</h2>
+<h1>Mr Ritik 234</h1>
+
+<br>
+
+<p>support@rand-demo.com</p>
+<p>help@rand-demo.com</p>
+
+<br>
+
+<p>Customer Care: Mon-Sat 9AM - 7PM</p>
+
+</footer>
+
+<div class="overlay" id="shippingPage">
+
+<div class="center">
+
+<h1 style="color:gold;">Shipping Details</h1>
+
+<input placeholder="Full Name">
+<input placeholder="Address">
+<input placeholder="Phone Number">
+
+<button class="next-btn" onclick="placeOrder()">
+Proceed To Checkout
+</button>
+
+</div>
+
+</div>
+
+<div class="overlay" id="loadingPage">
+
+<div class="center">
+
+<h1>Your Order Is Being Evaluated...</h1>
+
+<div class="progress">
+<div class="bar"></div>
+</div>
+
+</div>
+
+</div>
+
+<div class="overlay" id="confirmPage">
+
+<div class="center">
+
+<h1 style="font-size:60px;color:#00ff66;">
+✅ ORDER CONFIRMED
+</h1>
+
+<h2 style="margin-top:20px;">
+Preparing your shipment...
+</h2>
+
+<div id="count" style="
+font-size:120px;
+font-weight:bold;
+margin-top:20px;
+color:gold;">
+3
+</div>
+
+</div>
+
+</div>
+
+<div class="overlay" id="prankPage">
+
+<div class="center">
+
+<div class="big">
+KAISA LAGA
+</div>
+
+<div class="bigger">
+MERA MAZAK 😂
+</div>
+
+<div class="small">
+Order tha hi nahi bhai 😎
+</div>
+
+<div class="small">
+Tum sach me supplement kharidne wale the kya? 😂
+</div>
+
+<button class="retry" onclick="location.reload()">
+🤣 PHIR SE FASO
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function openShipping(){
+document.getElementById("shippingPage").style.display="block";
+}
+
+function placeOrder(){
+
+document.getElementById("shippingPage").style.display="none";
+
+document.getElementById("loadingPage").style.display="block";
+
+setTimeout(function(){
+
+document.getElementById("loadingPage").style.display="none";
+
+document.getElementById("confirmPage").style.display="block";
+
+let c=3;
+
+let timer=setInterval(function(){
+
+c--;
+
+if(c>0){
+document.getElementById("count").innerText=c;
+}
+else{
+
+clearInterval(timer);
+
+document.getElementById("confirmPage").style.display="none";
+
+document.getElementById("prankPage").style.display="block";
+
+}
+
+},1000);
+
+},4000);
+
+}
+
+</script>
+
+</body>
+</html>
